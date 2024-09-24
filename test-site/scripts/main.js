@@ -13,8 +13,6 @@ let myHeading = document.querySelector("h1");
 
 function setUserName() {
     const myName = prompt("あなたの名前を入力してください。");
-    localStorage.setItem("name", myName);
-    myHeading.textContent = '${myName}さん';
 
     if (!myName) {
         setUserName();
@@ -23,15 +21,6 @@ function setUserName() {
         myHeading.textContent = `${myName} にとってフリー素材とは何ですか？`;
     }
 }
-
-
-if (!localStorage.getItem("name")) {
-    setUserName();
-} else {
-    const storedName = localStorage.getItem("name");
-    myHeading.textContent = `${storedName}にとってフリー素材とは何ですか？`;
-}
-
 
 myButton.onclick = () => {
     setUserName();
